@@ -35,9 +35,9 @@ class _AnimatedRoateState extends AnimatedWidgetBaseState<AnimatedRotate> {
   }
 
   @override
-  void forEachTween(visitor) {
+  void forEachTween(TweenVisitor<dynamic> visitor) {
     _rotateTween = visitor(
-      _rotateTween!,
+      _rotateTween,
       widget.angle,
       (dynamic value) => Tween<double>(begin: value as double),
     ) as Tween<double>?;
