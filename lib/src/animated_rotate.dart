@@ -28,7 +28,6 @@ class _AnimatedRoateState extends AnimatedWidgetBaseState<AnimatedRotate> {
 
   @override
   Widget build(BuildContext context) {
-    // return AnimatedOpacity()
     return Transform.rotate(
       angle: _rotateTween?.evaluate(animation) ?? 0,
       child: widget.child,
@@ -38,9 +37,9 @@ class _AnimatedRoateState extends AnimatedWidgetBaseState<AnimatedRotate> {
   @override
   void forEachTween(visitor) {
     _rotateTween = visitor(
-      _rotateTween,
+      _rotateTween!,
       widget.angle,
-      (dynamic value) => Tween<double>(begin: value),
+      (dynamic value) => Tween<double>(begin: value as double),
     ) as Tween<double>?;
   }
 }
